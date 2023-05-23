@@ -13,9 +13,6 @@ class BloomFilter():
         for hash in self.hashes:
             self.mask[hash(value) % len(self.mask)] = 1
 
-    def count(self):
-        return self.mask.count(1)
-
     def contains(self, value):
         for hash in self.hashes:
             if self.mask[hash(value) % len(self.mask)] == 0:

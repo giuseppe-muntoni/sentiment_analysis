@@ -64,7 +64,7 @@ if __name__ == "__main__":
 
     # complete.csv
     # Question 1
-    question1Huge = Query1("data/complete.csv", lc_dim=200000)
+    question1Huge = Query1("data/complete.csv", lc_dim=160000000)
     question1Huge.executeExact()
     question1Huge.executeApproximated()
     question1Huge.printExactStats()

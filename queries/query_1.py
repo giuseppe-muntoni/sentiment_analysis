@@ -70,33 +70,33 @@ class Query1():
         print("Total number of users: " + str(self.lc_all.count()))
         print("Total happy: " + str(self.lc_happy.count()))
         print("Total unhappy: " + str(self.lc_unhappy.count()))
-        print("Total happy + unhappy: " +
-              str(self.lc_happy.count() + self.lc_unhappy.count()))
+        print("Total happy or unhappy: " +
+              str(self.lc_happy.count_union(self.lc_unhappy)))
         # Counting happy in different moments of the day
         print("Morning happy: " +
-              str(((self.lc_happy.intersect(self.lc_morning).count()) /
+              str((self.lc_happy.count_intersection(self.lc_morning) /
                    self.lc_happy.count()) * 100))
         print("Afternoon happy: " +
-              str(((self.lc_happy.intersect(self.lc_afternoon).count()) /
+              str((self.lc_happy.count_intersection(self.lc_afternoon) /
                    self.lc_happy.count()) * 100))
         print("Evening happy: " +
-              str(((self.lc_happy.intersect(self.lc_evening).count()) /
+              str((self.lc_happy.count_intersection(self.lc_evening) /
                    self.lc_happy.count()) * 100))
         print("Night happy: " +
-              str(((self.lc_happy.intersect(self.lc_night).count()) //
+              str((self.lc_happy.count_intersection(self.lc_night) /
                    self.lc_happy.count()) * 100))
         # Counting unhappy in different moments of the day
         print("Morning unhappy: " +
-              str(((self.lc_unhappy.intersect(self.lc_morning).count()) /
+              str((self.lc_unhappy.count_intersection(self.lc_morning) /
                    self.lc_unhappy.count()) * 100))
         print("Afternoon unhappy: " +
-              str(((self.lc_unhappy.intersect(self.lc_afternoon).count()) /
+              str((self.lc_unhappy.count_intersection(self.lc_afternoon) /
                    self.lc_unhappy.count()) * 100))
         print("Evening unhappy: " +
-              str(((self.lc_unhappy.intersect(self.lc_evening).count()) /
+              str((self.lc_unhappy.count_intersection(self.lc_evening) /
                    self.lc_unhappy.count()) * 100))
         print("Night unhappy: " +
-              str(((self.lc_unhappy.intersect(self.lc_night).count()) //
+              str((self.lc_unhappy.count_intersection(self.lc_night) /
                    self.lc_unhappy.count()) * 100))
 
     def executeApproximated(self):

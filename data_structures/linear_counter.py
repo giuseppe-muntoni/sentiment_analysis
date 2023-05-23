@@ -16,8 +16,14 @@ class LinearCounter():
         return (-self.len) * math.log(
             (self.len - self.mask.count(1)) / self.len)
 
-    def intersect(self, that):
-        to_ret = LinearCounter(self.len)
+    def count_intersection(self, that):
+        union_lc = LinearCounter(self.len)
         for i in range(0, len(self.mask)):
-            to_ret.mask[i] = self.mask[i] and that.mask[i]
-        return to_ret
+            union_lc.mask[i] = self.mask[i] or that.mask[i]
+        return (self.count() + that.count() - union_lc.count())
+    
+    def count_union(self, that):
+        union_lc = LinearCounter(self.len)
+        for i in range(0, len(self.mask)):
+            union_lc.mask[i] = self.mask[i] or that.mask[i]
+        return union_lc.count()
