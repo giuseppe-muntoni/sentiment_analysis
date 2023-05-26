@@ -4,6 +4,8 @@
 # the user that tweeted
 # the text of the tweet
 
+import os.path
+
 from queries.query_1 import Query1
 from queries.query_2 import Query2
 from queries.query_3 import Query3
@@ -62,28 +64,29 @@ if __name__ == "__main__":
     question4Medium.printExactStats()
     question4Medium.printApproximatedStats()
 
-    # complete.csv
-    # Question 1
-    question1Huge = Query1("data/complete.csv", lc_dim=160000000)
-    question1Huge.executeExact()
-    question1Huge.executeApproximated()
-    question1Huge.printExactStats()
-    question1Huge.printApproximatedStats()
-    # Question 2
-    question2Huge = Query2("data/complete.csv", ss_dim=400, best_n=30)
-    question2Huge.executeApproximated()
-    question2Huge.executeExact()
-    question2Huge.printExactStats()
-    question2Huge.printApproximatedStats()
-    # Question 3
-    question3Huge = Query3("data/complete.csv", lc_dim=200000, bf_dim=800000, bf_k=32)
-    question3Huge.executeApproximated()
-    question3Huge.executeExact()
-    question3Huge.printExactStats()
-    question3Huge.printApproximatedStats()
-    # Question 4
-    question4Huge = Query4("data/complete.csv", ss_dim=512, best_n=96)
-    question4Huge.executeApproximated()
-    question4Huge.executeExact()
-    question4Huge.printExactStats()
-    question4Huge.printApproximatedStats()
+    if os.path.isfile("data/complete.csv"):
+        # complete.csv
+        # Question 1
+        question1Huge = Query1("data/complete.csv", lc_dim=160000000)
+        question1Huge.executeExact()
+        question1Huge.executeApproximated()
+        question1Huge.printExactStats()
+        question1Huge.printApproximatedStats()
+        # Question 2
+        question2Huge = Query2("data/complete.csv", ss_dim=400, best_n=30)
+        question2Huge.executeApproximated()
+        question2Huge.executeExact()
+        question2Huge.printExactStats()
+        question2Huge.printApproximatedStats()
+        # Question 3
+        question3Huge = Query3("data/complete.csv", lc_dim=200000, bf_dim=800000, bf_k=32)
+        question3Huge.executeApproximated()
+        question3Huge.executeExact()
+        question3Huge.printExactStats()
+        question3Huge.printApproximatedStats()
+        # Question 4
+        question4Huge = Query4("data/complete.csv", ss_dim=512, best_n=96)
+        question4Huge.executeApproximated()
+        question4Huge.executeExact()
+        question4Huge.printExactStats()
+        question4Huge.printApproximatedStats()
